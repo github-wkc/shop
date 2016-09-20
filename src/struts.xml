@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<constant name="struts.multipart.saveDir" value="d:/temp"></constant>
+<!-- action 层的配置 -->
+	<!-- 主页配置的跳转 -->
+	<package name="shop" extends="struts-default" namespace="/">
+		<action name="index" class="index">
+			<result name="index">/WEB-INF/jsp/index.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 注册页面的跳转配置 -->
+	<package name="userAction" namespace="/" extends="struts-default">
+		<action name="user_*" class="UserAction" method="{1}">
+			<result name="registerPage">/WEB-INF/jsp/register.jsp</result>
+			<result name="loginPage">/WEB-INF/jsp/login.jsp</result>
+			<result name="msg">/WEB-INF/jsp/msg.jsp</result>
+			<result name="input">/WEB-INF/jsp/register.jsp</result>
+			<result name="activeSuccess">/WEB-INF/jsp/activeSuccess.jsp</result>
+			<result name="loginSuccess" type="redirectAction">index</result>
+			<result name="login">/WEB-INF/jsp/login.jsp</result>
+			<result name="quit" type="redirectAction">index</result>
+		</action>
+	</package>
+	<package name="productAction" namespace="/" extends="struts-default">
+		<action name="product_*" class="ProductAction" method="{1}">
+			<result name="findByPid">/WEB-INF/jsp/product.jsp</result>
+			<result name="findByCid">/WEB-INF/jsp/productList.jsp</result>
+			<result name="findByCSid">/WEB-INF/jsp/productList.jsp</result>
+		</action>
+	</package>
+	<package name="CartAction" namespace="/" extends="struts-default">
+		<action name="cart_*" class="CartAction" method="{1}">
+			<result name="addCartItem">/WEB-INF/jsp/Cart.jsp</result> 
+			<result name="removeItem">/WEB-INF/jsp/Cart.jsp</result> 
+			<result name="clear">/WEB-INF/jsp/Cart.jsp</result> 
+			<result name="myCart">/WEB-INF/jsp/Cart.jsp</result> 
+		</action>
+	</package>
+	<package name="OrderAction" namespace="/" extends="struts-default">
+		<action name="order_*" class="OrderAction" method="{1}">
+			<result name="submitOrder">/WEB-INF/jsp/order.jsp</result>
+			<result name="login">/WEB-INF/jsp/login.jsp</result>
+			<result name="myOrder">/WEB-INF/jsp/orderList.jsp</result>
+		</action>
+	</package>
+	
+	<!-- 后台的配置 -->
+	<package name="back" namespace="/" extends="struts-default">
+		<action name="adminUser_*" class="AdminUserAction" method="{1}">
+			<result name="index">/admin/index.jsp</result>
+			<result name="login">/admin/home.jsp</result>
+		</action>
+		<action name="adminCategory_*" class="AdminCategoryAction" method="{1}">
+			<result name="findAll">/admin/category/list.jsp</result>
+			<result name="saveSuccess" type="redirectAction">adminCategory_findAll.action</result>
+			<result name="delete" type="redirectAction">adminCategory_findAll.action</result>
+			<result name="edit">/admin/category/edit.jsp</result>
+			<result name="update" type="redirectAction">adminCategory_findAll.action</result>
+		</action>
+		<action name="adminCategorySecond_*" class="AdminCategorySecondAction"  method="{1}">
+			<result name="findAllByPage">/admin/categorysecond/list.jsp</result>
+			<result name="addPage">/admin/categorysecond/add.jsp</result>
+			<result name="saveSuccess" type="redirectAction">adminCategorySecond_findAllByPage.action?currentPage=1</result>
+			<result name="deleteSuccess" type="redirectAction">adminCategorySecond_findAllByPage.action?currentPage=1</result>
+			<result name="editPage" >/admin/categorysecond/edit.jsp</result>
+			<result name="editSuccess" type="redirectAction">adminCategorySecond_findAllByPage.action?currentPage=1</result>
+		</action>
+		<action name="adminProduct_*" class="AdminProductAction" method="{1}">
+			<result name="findAllByPage">/admin/product/list.jsp</result>
+			<result name="addPage">/admin/product/add.jsp</result>
+			<result name="saveSuccess" type="redirectAction">adminProduct_findAllByPage.action?currentPage=1</result>
+			<result name="delete" type="redirectAction">adminProduct_findAllByPage.action?currentPage=1</result>
+			<result name="editPage">/admin/product/edit.jsp</result>
+			<result name="edit" type="redirectAction">adminProduct_findAllByPage.action?currentPage=1</result>
+		</action>
+		<action name="adminOrder_*" class="AdminOrderAction" method="{1}">
+			<result name="findAllByPage">/admin/order/list.jsp</result>
+		
+		</action>
+	</package>
+</struts>
+
