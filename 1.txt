@@ -1,0 +1,33 @@
+-----22分钟-----
+
+枚举的配置文件和注解没看呢
+spring视频的30讲有面试问题
+描述下动态代理和aop
+spring32和34没看
+43以后的视频没看 有点老了，工作中可能用不到
+
+github账号
+github-wkc
+github-wkc15114292393
+csdn
+wangkechenghoney@163.com
+wkc15114292393
+
+jbosser-wkc
+jbosser-wkc
+
+fanke1123038154
+wkc151--------93
+
+博客园
+1123038154
+WKCwkc@@15114292393
+水木
+wkchoney123
+wkc151--93
+实习僧
+1123038154
+151-----
+将数据插入到set中，取两次数据，两次的结果一样吗
+linux的命令 和研究设计模式
+小米的申请
